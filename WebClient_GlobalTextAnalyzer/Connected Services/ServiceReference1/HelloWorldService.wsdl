@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://example/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="HelloWorldService" targetNamespace="http://example/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:9000/HelloWorld?xsd=1" namespace="http://example/" />
+    </xsd:schema>
+  </types>
+  <message name="makeCaps">
+    <part name="parameters" element="tns:makeCaps" />
+  </message>
+  <message name="makeCapsResponse">
+    <part name="parameters" element="tns:makeCapsResponse" />
+  </message>
+  <message name="countOneWord">
+    <part name="parameters" element="tns:countOneWord" />
+  </message>
+  <message name="countOneWordResponse">
+    <part name="parameters" element="tns:countOneWordResponse" />
+  </message>
+  <message name="countWords">
+    <part name="parameters" element="tns:countWords" />
+  </message>
+  <message name="countWordsResponse">
+    <part name="parameters" element="tns:countWordsResponse" />
+  </message>
+  <message name="countCharacters">
+    <part name="parameters" element="tns:countCharacters" />
+  </message>
+  <message name="countCharactersResponse">
+    <part name="parameters" element="tns:countCharactersResponse" />
+  </message>
+  <portType name="HelloWorld">
+    <operation name="makeCaps">
+      <input wsam:Action="http://example/HelloWorld/makeCapsRequest" message="tns:makeCaps" />
+      <output wsam:Action="http://example/HelloWorld/makeCapsResponse" message="tns:makeCapsResponse" />
+    </operation>
+    <operation name="countOneWord">
+      <input wsam:Action="http://example/HelloWorld/countOneWordRequest" message="tns:countOneWord" />
+      <output wsam:Action="http://example/HelloWorld/countOneWordResponse" message="tns:countOneWordResponse" />
+    </operation>
+    <operation name="countWords">
+      <input wsam:Action="http://example/HelloWorld/countWordsRequest" message="tns:countWords" />
+      <output wsam:Action="http://example/HelloWorld/countWordsResponse" message="tns:countWordsResponse" />
+    </operation>
+    <operation name="countCharacters">
+      <input wsam:Action="http://example/HelloWorld/countCharactersRequest" message="tns:countCharacters" />
+      <output wsam:Action="http://example/HelloWorld/countCharactersResponse" message="tns:countCharactersResponse" />
+    </operation>
+  </portType>
+  <binding name="HelloWorldPortBinding" type="tns:HelloWorld">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="makeCaps">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="countOneWord">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="countWords">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="countCharacters">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="HelloWorldService">
+    <port name="HelloWorldPort" binding="tns:HelloWorldPortBinding">
+      <soap:address location="http://localhost:9000/HelloWorld" />
+    </port>
+  </service>
+</definitions>

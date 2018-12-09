@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://example/" targetNamespace="http://example/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="countCharacters" type="tns:countCharacters" />
+  <xs:element name="countCharactersResponse" type="tns:countCharactersResponse" />
+  <xs:element name="countOneWord" type="tns:countOneWord" />
+  <xs:element name="countOneWordResponse" type="tns:countOneWordResponse" />
+  <xs:element name="countWords" type="tns:countWords" />
+  <xs:element name="countWordsResponse" type="tns:countWordsResponse" />
+  <xs:element name="makeCaps" type="tns:makeCaps" />
+  <xs:element name="makeCapsResponse" type="tns:makeCapsResponse" />
+  <xs:complexType name="makeCaps">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="text" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="makeCapsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="countWords">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="text" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="countWordsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" nillable="true" type="tns:pair" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pair">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="x" type="xs:string" />
+      <xs:element name="y" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="countCharacters">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="text" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="countCharactersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" nillable="true" type="tns:pair" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="countOneWord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="text" type="xs:string" />
+      <xs:element minOccurs="0" name="word" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="countOneWordResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
